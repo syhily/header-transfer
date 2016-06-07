@@ -1,5 +1,5 @@
 package = "header-transfer"
-version = "0.0.2-1"
+version = "0.0.2-0"
 supported_platforms = {"linux", "macosx"}
 source = {
   url = "git://github.com/syhily/header-transfer",
