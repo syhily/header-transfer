@@ -77,7 +77,7 @@ end
 local function transform_headers_to_url_encoded_body(new_body, body, content_length)
   local parameters = decode_args(body)
   if parameters == nil and content_length > 0 then return false, nil end -- Couldn't modify body
-  if content_length > 0 then
+  if content_length >= 0 then
     for body_name, body_value in pairs(new_body) do
       parameters[body_name] = body_value
     end
