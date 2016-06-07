@@ -133,12 +133,12 @@ local function transform_headers_to_body(conf)
     local is_body_transformed = false
     local content_length = (body and string_len(body)) or 0
 
-    if content_type == ENCODED then
-      is_body_transformed, body = transform_headers_to_url_encoded_body(new_body, body, content_length)
-    elseif content_type == MULTI then
+    if content_type == MULTI then
       is_body_transformed, body = transform_headers_to_multipart_body(new_body, body, content_length, content_type_value)
     elseif content_type == JSON then
       is_body_transformed, body = transform_headers_to_json_body(new_body, body, content_length)
+    else
+      is_body_transformed, body = transform_headers_to_url_encoded_body(new_body, body, content_length)
     end
 
     if is_body_transformed then
